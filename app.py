@@ -8,6 +8,8 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from apiResponse import apiResponse
 from flask_cors import CORS
 from functools import wraps
+import base64
+import rncryptor
 
 
 db = conn.connect(host = 'localhost',
@@ -152,13 +154,21 @@ def signup_user():
 
 @app.route('/login', methods=['POST'])
 def login():
+    cryptor = rncryptor.RNCryptor()
     data = request.get_json()
     username = data['username']
     cur.execute("select * from user where username = %s",(username,))
     myresult = cur.fetchall()
     print(myresult)
     db_data= myresult[0]
-    if check_password_hash(db_data['password'],data['password']):
+    print(data['password'])
+    password = data['password']
+    
+    #decrypted_data = base64.b64decode(password)
+    #decrypted_data = message_bytes.decode('ascii')
+    #decrypted_data = base64.decodestring(data['password']) 
+    #print(str(decrypted_data))
+    if check_password_hash(db_data['password'],password):
         apiResponse['data'] = "login successfully"
         apiResponse['statusCode'] = 200
         response = make_response(apiResponse)
@@ -212,6 +222,13 @@ def updateTask(user_id):
         apiResponse['data'] = "failed"
         apiResponse['statusCode'] = 300
         return apiResponse
+
+
+# @app.route('/logout', methods=['GET'])
+# def logout():
+#     apiResponse['data'] = "login successfully"
+#     apiResponse['statusCode'] = 200
+#     return apiResponse 
 
 
 if  __name__ == '__main__':  
