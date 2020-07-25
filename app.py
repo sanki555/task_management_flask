@@ -46,8 +46,11 @@ def token_required(f):
             return jsonify({'data': 'token is invalid','statusCode':'504'})  
 
     return decorator
-            
-     
+
+          
+@app.route('/')
+def index():
+    return "<h1>Welcome to our server !!</h1>"     
 
 
 @app.route('/tasks', methods=['GET'])
