@@ -3,7 +3,7 @@ datetime
 uuid
 flask
 mysql.connector
-werkzeug.security
+werkzeug
 flask_cors
 functools
 base64
