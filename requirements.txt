@@ -4,4 +4,5 @@ uuid
 jwt
 mysql.connector
 flask_cors
+rncryptor
 gunicorn==19.7.1  
