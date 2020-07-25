@@ -1,7 +1,7 @@
 Flask  
 datetime 
 uuid
-jwt
+pyjwt
 mysql.connector
 flask_cors
 rncryptor
