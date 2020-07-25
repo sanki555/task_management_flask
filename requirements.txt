@@ -5,8 +5,4 @@ flask
 mysql.connector
 werkzeug
 flask_cors
-functools
-base64
-rncryptor
-
 gunicorn==19.7.1  
