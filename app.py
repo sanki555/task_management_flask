@@ -12,10 +12,10 @@ import base64
 import rncryptor
 
 
-db = conn.connect(host = 'localhost',
-                      user= 'root',
-                      passwd = 'root',
-                      database = 'task_management')
+db = conn.connect(host = 'db4free.net',
+                      user= 'asdfqwrqw',
+                      passwd = 'sanket1234',
+                      database = 'aasdfgshfgadg1')
 
 cur=db.cursor(dictionary=True)
 app = Flask(__name__)
