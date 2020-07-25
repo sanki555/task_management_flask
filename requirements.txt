@@ -3,4 +3,5 @@ datetime
 uuid
 Flask-SQLAlchemy
 mysql-connector-python
-PyJWT  
+PyJWT
+gunicorn==19.7.1  
