@@ -20,7 +20,8 @@ db = conn.connect(host = 'db4free.net',
 cur=db.cursor(dictionary=True)
 app = Flask(__name__)
 app.config['SECRET_KEY']='Th1s1ss3cr3t' 
-CORS(app)
+CORS(app,supports_credentials=True)
+
 
 
 def token_required(f):  
@@ -231,7 +232,6 @@ def updateTask(user_id):
 #     apiResponse['data'] = "login successfully"
 #     apiResponse['statusCode'] = 200
 #     return apiResponse 
-
 
 
 if  __name__ == '__main__':  
