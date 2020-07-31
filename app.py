@@ -20,8 +20,6 @@ db = conn.connect(host = 'db4free.net',
 cur=db.cursor(dictionary=True)
 app = Flask(__name__)
 app.config['SECRET_KEY']='Th1s1ss3cr3t' 
-CORS(app,origins=["http://localhost:4200"], headers=['Content-Type'], expose_headers=['Access-Control-Allow-Origin'], supports_credentials=True)
-
 
 
 def token_required(f):  
