@@ -20,8 +20,7 @@ db = conn.connect(host = 'db4free.net',
 cur=db.cursor(dictionary=True)
 app = Flask(__name__)
 app.config['SECRET_KEY']='Th1s1ss3cr3t' 
-CORS(app,origins=["https://task-management-angular.herokuapp.com"], headers=['Content-Type'], expose_headers=['Access-Control-Allow-Origin'], supports_credentials=True)
-
+CORS(app)
 
 
 def token_required(f):  
@@ -233,13 +232,7 @@ def updateTask(user_id):
 #     apiResponse['statusCode'] = 200
 #     return apiResponse 
 
-@app.after_request
-def after_request(response):
-  response.headers.add('Access-Control-Allow-Origin', 'https://task-management-angular.herokuapp.com/')
-  response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
-  response.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS')
-  response.headers.add('Access-Control-Allow-Credentials', 'true')
-  return response
+
 
 if  __name__ == '__main__':  
      app.run(debug=True) 
